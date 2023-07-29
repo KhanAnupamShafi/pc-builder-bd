@@ -1,10 +1,11 @@
 import RootLayout from '@components/Layout/RootLayout';
-import { Button } from 'antd';
-// import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 import Head from 'next/head';
 
-// const inter = Inter({ subsets: ['latin'] });
-
+const myFont = localFont({
+  src: '../../public/fonts/MerriweatherSans.ttf',
+  variable: '--font-myfont',
+});
 export default function Home() {
   return (
     <>
@@ -18,7 +19,7 @@ export default function Home() {
           name="viewport"
           content="width=device-width, initial-scale=1"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/vercel.svg" />
       </Head>
       <div>
         <h1>
@@ -27,7 +28,6 @@ export default function Home() {
           recusandae harum voluptate error eos ipsum, et sequi
           eligendi, ipsa aut cupiditate rem! Possimus, qui accusamus.
         </h1>
-        <Button>aab</Button>
       </div>
     </>
   );
