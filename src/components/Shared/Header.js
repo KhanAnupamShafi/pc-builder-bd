@@ -1,4 +1,4 @@
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Segmented } from 'antd';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
@@ -9,7 +9,7 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
-      if (offset > 45) {
+      if (offset > 55) {
         setIsSticky(true);
       } else {
         setIsSticky(false);
@@ -34,7 +34,7 @@ const Header = () => {
         alignItems: 'center',
         justifyContent: 'space-between',
         transition: 'transform 0.3s ease',
-        transform: isSticky ? 'translateY(0%)' : 'translateY(70%)',
+        transform: isSticky ? 'translateY(0%)' : 'translateY(80%)',
         backdropFilter: isSticky && 'blur(2px)',
         background: !isSticky ? '#001529' : 'rgba(0, 21, 41, 0.9)',
         boxShadow: !isSticky
@@ -50,6 +50,20 @@ const Header = () => {
           style={{ fill: 'red', verticalAlign: 'middle' }}
         />
       </div>
+      <Segmented
+        options={[
+          {
+            label: 'List',
+            value: 'List',
+            // icon: <BarsOutlined />,
+          },
+          {
+            label: 'Kanban',
+            value: 'Kanban',
+            // icon: <AppstoreOutlined />,
+          },
+        ]}
+      />
 
       <Menu
         style={{

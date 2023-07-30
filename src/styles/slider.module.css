@@ -66,15 +66,16 @@
   flex-direction: column;
 }
 .topBar {
+  max-width: 960px;
   position: relative;
   top: 0;
-  height: 45px;
+  height: 52px;
   background-color: #2b2a29;
   clip-path: polygon(0 0, 100% 0, 96% 100%, 3% 100%);
 }
 .topContent {
-  padding: 10px 0px;
   width: 960px;
+  height: 100%;
 }
 .topBorder {
   position: absolute;

@@ -1,8 +1,8 @@
 import Footer from '@components/Shared/Footer';
-// import Header from '@components/Shared/Header';
 import Slider from '@components/UI/Slider';
 import TopBar from '@components/UI/TopBar';
 import { Layout } from 'antd';
+import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 const { Content } = Layout;
 
@@ -16,7 +16,7 @@ const RootLayout = ({ children }) => {
 
   return (
     <>
-      {/* <motion.div
+      <motion.div
         initial={{ x: 300, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         exit={{ x: 300, opacity: 0 }}
@@ -24,24 +24,24 @@ const RootLayout = ({ children }) => {
           type: 'spring',
           stiffness: 260,
           damping: 20,
-        }}> */}
-      <div className="main-container">
-        <div className="flex-grow">
-          <Layout>
-            <TopBar />
-            <DynamicHeader />
+        }}>
+        <div className="main-container">
+          <div className="flex-grow">
+            <Layout>
+              <TopBar />
+              <DynamicHeader />
 
-            <Slider />
-            <Content
-              className="site-layout"
-              style={{ padding: '0 50px', height: '120vh' }}>
-              <div>{children}</div>
-            </Content>
-            <Footer />
-          </Layout>
+              <Slider />
+              <Content
+                className="site-layout"
+                style={{ padding: '0 50px', height: '120vh' }}>
+                <div>{children}</div>
+              </Content>
+              <Footer />
+            </Layout>
+          </div>
         </div>
-      </div>
-      {/* </motion.div> */}
+      </motion.div>
     </>
   );
 };
