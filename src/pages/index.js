@@ -1,11 +1,7 @@
 import RootLayout from '@components/Layout/RootLayout';
-import localFont from 'next/font/local';
+import Landing from '@components/UI/Landing';
 import Head from 'next/head';
 
-const myFont = localFont({
-  src: '../../public/fonts/MerriweatherSans.ttf',
-  variable: '--font-myfont',
-});
 export default function Home() {
   return (
     <>
@@ -21,14 +17,7 @@ export default function Home() {
         />
         <link rel="icon" href="/vercel.svg" />
       </Head>
-      <div>
-        <h1>
-          Hello this is next js Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Qui ab delectus assumenda dicta ratione
-          recusandae harum voluptate error eos ipsum, et sequi
-          eligendi, ipsa aut cupiditate rem! Possimus, qui accusamus.
-        </h1>
-      </div>
+      <Landing />
     </>
   );
 }
