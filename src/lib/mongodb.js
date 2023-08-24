@@ -1,21 +1,17 @@
-// mongodb.js
-
-import { MongoClient } from 'mongodb';
+const { MongoClient } = require('mongodb');
 
 const uri = process.env.MONGODB_URI;
-const options = {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-};
 
-let client;
-let clientPromise;
+const options = {};
 
-if (!process.env.MONGODB_URI) {
+if (!uri) {
   throw new Error('Add Mongo URI to .env.local');
 }
 
-if (process.env.NODE_ENV === 'development') {
+let client = new MongoClient(uri, options);
+let clientPromise;
+
+if (process.env.NODE_ENV !== 'production') {
   // Check if the global MongoDB client promise exists
   if (!global._mongoClientPromise) {
     client = new MongoClient(uri, options);

@@ -4,6 +4,7 @@ import TopBar from '@components/UI/TopBar';
 import { Layout } from 'antd';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
 const { Content } = Layout;
 
 const RootLayout = ({ children }) => {
@@ -13,7 +14,11 @@ const RootLayout = ({ children }) => {
       loading: () => <p>Loading...</p>,
     }
   );
+  const router = useRouter();
 
+  const isPcBuilderPage = router.asPath === '/pc-builder';
+  const isAddCategoryPage = router.route === '/add/[category]';
+  const isCategoryPage = router.route === '/products/[category]';
   return (
     <>
       <motion.div
@@ -31,10 +36,12 @@ const RootLayout = ({ children }) => {
               <TopBar />
               <DynamicHeader />
 
-              <Slider />
-              <Content
-                className="site-layout"
-                style={{ padding: '0 50px', height: '120vh' }}>
+              {!(
+                isPcBuilderPage ||
+                isAddCategoryPage ||
+                isCategoryPage
+              ) && <Slider />}
+              <Content>
                 <div>{children}</div>
               </Content>
               <Footer />

@@ -1,1 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 283 64"><path fill="black" d="M141 16c-11 0-19 7-19 18s9 18 20 18c7 0 13-3 16-7l-7-5c-2 3-6 4-9 4-5 0-9-3-10-7h28v-3c0-11-8-18-19-18zm-9 15c1-4 4-7 9-7s8 3 9 7h-18zm117-15c-11 0-19 7-19 18s9 18 20 18c6 0 12-3 16-7l-8-5c-2 3-5 4-8 4-5 0-9-3-11-7h28l1-3c0-11-8-18-19-18zm-10 15c2-4 5-7 10-7s8 3 9 7h-19zm-39 3c0 6 4 10 10 10 4 0 7-2 9-5l8 5c-3 5-9 8-17 8-11 0-19-7-19-18s8-18 19-18c8 0 14 3 17 8l-8 5c-2-3-5-5-9-5-6 0-10 4-10 10zm83-29v46h-9V5h9zM37 0l37 64H0L37 0zm92 5-27 48L74 5h10l18 30 17-30h10zm59 12v10l-3-1c-6 0-10 4-10 10v15h-9V17h9v9c0-5 6-9 13-9z"/></svg>
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 512 512" xml:space="preserve">
+<circle style="fill:#F2CF61;" cx="256" cy="256" r="256"/>
+<path style="fill:#B3B3B3;" d="M0,404h512v12l0,0c0,6.6-5.4,12-12,12H12c-6.596,0-12-5.4-12-12l0,0V404z"/>
+<polygon style="fill:#E6E6E6;" points="432,332 80,332 0,404 512,404 "/>
+<polygon style="fill:#F5F5F5;" points="41.696,388 86.14,348 425.86,348 470.304,388 "/>
+<path style="fill:#E6E6E6;" d="M288,404c0,4.416-3.584,8-8,8h-56c-4.416,0-8-3.584-8-8H288z"/>
+<path style="fill:#263740;" d="M80,332V116c0-6.6,5.404-12,12-12h328c6.6,0,12,5.4,12,12v216H80z"/>
+<rect x="104" y="128" style="fill:#406A80;" width="304" height="184"/>
+<circle style="fill:#70CCBD;" cx="412" cy="340" r="4"/>
+<circle style="fill:#CC584C;" cx="256" cy="116" r="4"/>
+<path style="fill:#263740;" d="M460,420h-40c-2.208,0-4-1.788-4-4s1.792-4,4-4h40c2.212,0,4,1.788,4,4S462.212,420,460,420z"/>
+</svg>

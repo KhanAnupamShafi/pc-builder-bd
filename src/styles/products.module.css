@@ -1,0 +1,231 @@
+.container {
+  width: 100%;
+  max-width: 1090px;
+  margin: 200px auto 0;
+  color: #000;
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.07843);
+  border-radius: 20px;
+  overflow-y: hidden;
+  margin-bottom: 100px;
+}
+.containerProduct {
+  width: 100%;
+  max-width: 1090px;
+  margin: 50px auto 0;
+  color: #000;
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.07843);
+  border-radius: 20px;
+  overflow-y: hidden;
+  margin-bottom: 100px;
+}
+
+#hero1 {
+  background-color: #ffffff;
+  background-image: linear-gradient(19deg, #ffffff 0%, #9790af 100%);
+  background: url('/images/bg.png') no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.hero {
+  text-align: center;
+  position: relative;
+  width: 100%;
+}
+
+.text-container {
+  background: rgba(200, 200, 200, 0.7);
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.copy {
+  backdrop-filter: blur(6px);
+  color: #f0f0f7;
+
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.4
+  ); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 90%;
+  padding: 12px;
+  text-align: left;
+  margin-top: -5rem;
+}
+
+.inner {
+  min-height: 100%;
+  position: relative;
+}
+
+.text {
+  text-transform: uppercase;
+  font-weight: bold;
+  background: linear-gradient(
+    to right,
+    #30cfd0 0%,
+    rgb(140, 179, 235) 50%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.right {
+  padding: 5px 20px;
+  height: 100%;
+}
+
+.productCardContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-bottom: 2rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.productImageWrapper {
+  position: relative;
+  width: 100%;
+  padding: 1rem;
+  background-color: #f0f0f7;
+  transition: all 0.15s ease-in-out;
+}
+
+.productImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.productImageWrapper {
+  overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+}
+
+.productImageWrapper img {
+  transition: transform 0.5s ease;
+}
+
+.productImageWrapper:hover img {
+  transform: scale(1.1);
+}
+
+.productDetails {
+  flex-grow: 1;
+  margin-top: 0.775rem;
+  margin-bottom: 0.375rem;
+}
+
+.productTitle {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: bold;
+  color: #333;
+}
+.productCategory {
+  font-size: 0.715rem;
+}
+
+.productSubtitle {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #666;
+}
+
+.productPrice {
+  font-size: 0.975rem;
+  color: #8b00fd;
+  font-weight: bold;
+}
+
+.productColorVariants {
+  display: flex;
+  margin-left: auto;
+}
+
+.colorVariantButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  margin-right: 0.25rem;
+  cursor: pointer;
+}
+
+.colorVariantButton:last-child {
+  margin-right: 0;
+}
+
+/* Quick Shop Button */
+.quickShopButton {
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.15s ease-in-out;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.productCardContainer:hover .quickShopButton {
+  opacity: 0.85;
+}
+
+.quickShopLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f7;
+  color: #333;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0.5rem 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.quickShopLink:hover {
+  background-color: #8b00fd;
+  color: #fff;
+}
+
+.btn {
+  margin: 15px 0;
+  width: 100%;
+  color: #1cc49d;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.coupon_card {
+  background: linear-gradient(135deg, #7158fe, #9d4de6);
+  color: #fff;
+  text-align: center;
+  margin-top: 2em;
+  padding: 10px 40px;
+  border-radius: 0;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.15);
+  position: relative;
+}

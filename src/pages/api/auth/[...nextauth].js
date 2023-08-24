@@ -13,9 +13,9 @@ export const authOptions = {
       clientSecret: process.env.GITHUB_SECRET,
     }),
   ],
-  pages: {
-    signIn: '/signup',
-  },
+  // pages: {
+  //   signIn: () => signIn('google'),
+  // },
 };
 
 export default NextAuth(authOptions);

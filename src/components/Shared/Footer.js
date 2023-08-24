@@ -1,8 +1,11 @@
+import TopFooter from '@components/UI/TopFooter';
+
 const Footer = () => {
   return (
-    <footer>
-      <p>This is Footer ss</p>
-    </footer>
+    <>
+      <TopFooter />
+      <footer></footer>
+    </>
   );
 };
 

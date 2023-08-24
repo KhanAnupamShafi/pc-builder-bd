@@ -8,8 +8,13 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
-  /* Equivalent base CSS */
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: normal;
+  font-feature-settings: normal;
+  font-family: Gotham SSm, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
+  font-variation-settings: normal;
+  line-height: 1.5;
 }
 
 .main-container {
@@ -25,7 +30,6 @@ body {
 
 /* Default styles for all screen sizes */
 .container {
-  /* Your default styles for the container go here */
   max-width: 100%;
   margin: 0 auto;
   padding: 20px;
@@ -66,4 +70,11 @@ body {
   /* Add your desired background color */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   /* Optional: Add a box shadow for visual effect */
+}
+
+.active {
+  cursor: default;
+  color: #fff;
+  background-color: #75a319;
+  border-style: none;
 }

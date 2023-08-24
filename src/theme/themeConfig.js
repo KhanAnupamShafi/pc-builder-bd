@@ -1,6 +1,9 @@
 const theme = {
   token: {
     fontSize: 16,
+    fontSizeSM: 18,
+    fontSizeLG: 20,
+    fontSizeXL: 20,
     colorPrimary: '#e76f51',
     colorLink: '#239fe2',
     colorError: '#e22340',

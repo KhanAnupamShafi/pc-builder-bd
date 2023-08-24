@@ -1,97 +1,206 @@
-import RootLayout from '@/components/Layouts/RootLayout';
-import {
-  CalendarOutlined,
-  CommentOutlined,
-  ProfileOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
-import { Col, Row } from 'antd';
+import { DeleteFilled } from '@ant-design/icons';
+import RootLayout from '@components/Layout/RootLayout';
+import { removeFromBuilder } from '@redux/features/pcPartsSlice';
+import { Button, Space, Table, Tag, Typography, message } from 'antd';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useDispatch, useSelector } from 'react-redux';
 
-const PcBuilderPage = ({ news }) => (
-  <Row style={{ marginTop: '80px', alignItems: 'center' }}>
-    <Col md={6} lg={12}>
-      <Image
-        alt="example"
-        src={news?.image_url}
-        width={500}
-        height={300}
-        responsive
-      />
-    </Col>
-    <Col md={6} lg={12} style={{ paddingLeft: '20px' }}>
-      <h1 style={{ fontSize: '30px' }}>{news?.title}</h1>
-      <span
-        style={{
-          color: 'gray',
-          display: 'block',
-          fontSize: '20px',
-        }}>
-        <UserOutlined /> {news?.author}
-      </span>
+const PcBuilderPage = () => {
+  const pcParts = useSelector((state) => state.pcParts);
+  const dispatch = useDispatch();
+  const [messageApi, contextHolder] = message.useMessage();
+  const handleDelete = (id) => {
+    console.log(id, 'aaa');
+    if (id) {
+      dispatch(removeFromBuilder(id));
+    }
+  };
+  const info = () => {
+    messageApi.info('Congrats, You did it!');
+  };
+
+  // Initial empty data structure for each category
+  const emptyCategoryData = {
+    _id: undefined,
+    name: undefined,
+    image: undefined,
+    price: undefined,
+    type: undefined,
+    rating: undefined,
+    stock: undefined,
+    category: undefined,
+  };
+
+  const categoryLabelMap = {
+    'CPU / Processor': 'cpu',
+    Motherboard: 'motherboard',
+    RAM: 'memory',
+    'Power Supply Unit': 'power-supply',
+    'Storage Device': 'internal-storage',
+    Monitor: 'monitor',
+    Other: 'others',
+  };
+
+  const categoryNames = Object.keys(categoryLabelMap);
+
+  // Initialize the data array with empty data structures for each category
+  let data = categoryNames.map((category) => ({
+    ...emptyCategoryData,
+    category,
+  }));
+
+  // Merge the empty data array with actual data from pcParts
+  pcParts.forEach((selectedPart) => {
+    const index = categoryNames.indexOf(selectedPart.category);
+    if (index !== -1) {
+      data[index] = { ...data[index], ...selectedPart };
+    }
+  });
+
+  const columns = [
+    {
+      title: 'Category',
+      dataIndex: 'key',
+      rowScope: 'row',
+      align: 'right',
+      render: (_, record, index) => (
+        <span>
+          {(
+            <Space size="middle">
+              <Link
+                href={`/add/${
+                  categoryLabelMap[categoryNames[index]]
+                }`}>
+                Choose a
+                <Button style={{ marginLeft: 5 }} type="primary">
+                  {categoryNames[index]}
+                </Button>
+              </Link>
+            </Space>
+          ) || 'Unknown Category'}
+        </span>
+      ),
+    },
+
+    {
+      title: 'Product Photo',
+      dataIndex: 'image',
+      key: 'image',
+      render: (image) =>
+        image !== undefined && (
+          <Image
+            height={80}
+            width={90}
+            src={image}
+            alt="h9-flow-hero-white"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkmPi/HgAEOgIRSYtutwAAAABJRU5ErkJggg==)"
+          />
+        ),
+    },
+    {
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+      render: (text, record) => (
+        <Link href={`/product/${record._id}`}>{text}</Link>
+      ),
+    },
+    {
+      title: 'Price',
+      dataIndex: 'price',
+      key: 'price',
+      render: (price) => price !== undefined && <a>${price}</a>,
+    },
+    {
+      title: 'Type',
+      dataIndex: 'type',
+      key: 'type',
+    },
+
+    {
+      title: 'Rating',
+      dataIndex: 'rating',
+      key: 'rating',
+    },
+    {
+      title: 'Availability',
+      key: 'stock',
+      dataIndex: 'stock',
+      render: (_, { stock }) => (
+        <Tag color={!stock ? 'red' : 'green'} key={stock}>
+          {stock === undefined
+            ? ' '
+            : stock == true
+            ? 'In-stock'
+            : 'Out of Stock'}
+        </Tag>
+      ),
+    },
+    {
+      title: 'Action',
+      key: 'action',
+      render: (_, record) => (
+        <Space size="middle">
+          <a onClick={() => handleDelete(record._id)}>
+            <DeleteFilled /> Delete
+          </a>
+        </Space>
+      ),
+    },
+  ];
+
+  return (
+    <div style={{ position: 'relative', marginTop: '65px' }}>
+      {contextHolder}
       <div
-        className="line"
         style={{
-          height: '5px',
-          margin: '20px 0',
-          background: '#000',
-          width: '100%',
-        }}></div>
-
-      <p
-        style={{
+          maxWidth: '1460px',
           display: 'flex',
-          justifyContent: 'space-between',
-          width: '100%',
-          color: 'gray',
-          margin: '10px 0px',
-          fontSize: '20px',
+          justifyContent: 'center',
+          margin: 'auto',
+          padding: '10px',
         }}>
-        <span>
-          <CalendarOutlined /> {news?.release_date}
-        </span>
-        <span>
-          <CommentOutlined /> {news?.comment_count} Comments
-        </span>
-        <span>
-          <ProfileOutlined /> {news?.category}
-        </span>
-      </p>
-
-      <p style={{ fontSize: '25px', fontWeight: 'lighter' }}>
-        {news?.description}
-      </p>
-    </Col>
-  </Row>
-);
-export default PcBuilderPage;
-
-PcBuilderPage.getLayout = function getLayout(page) {
-  return <RootLayout>{page}</RootLayout>;
+        <Table
+          scroll={true}
+          bordered={true}
+          columns={columns}
+          dataSource={data}
+          rowKey="_id"
+          caption={
+            <Space
+              size={'middle'}
+              align=""
+              wrap
+              style={{
+                padding: '15px',
+                display: 'flex',
+                justifyContent: 'space-between',
+              }}>
+              <h1>
+                Choose Your Core Component{' '}
+                <Typography.Text type="secondary">
+                  ({Math.max(0, 6 - pcParts.length)}
+                  &nbsp;remaining)
+                </Typography.Text>
+              </h1>
+              <Button
+                onClick={info}
+                type="primary"
+                disabled={pcParts.length < 6}>
+                Complete Build
+              </Button>
+            </Space>
+          }
+        />
+      </div>
+    </div>
+  );
 };
 
-// export const getStaticPaths = async () => {
-//   const res = await fetch("http://localhost:5000/news");
-//   const newses = await res.json();
+export default PcBuilderPage;
 
-//   const paths = newses.map((news) => ({
-//     params: { newsId: news.id },
-//   }));
-
-//   return { paths, fallback: false };
-// };
-
-export const getServerSideProps = async (context) => {
-  const { params } = context;
-  const res = await fetch(
-    `http://localhost:5000/news/${params.newsId}`
-  );
-  const data = await res.json();
-  // console.log(data);
-
-  return {
-    props: {
-      news: data,
-    },
-  };
+PcBuilderPage.getLayout = (Page) => {
+  return <RootLayout>{Page}</RootLayout>;
 };

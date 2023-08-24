@@ -4,7 +4,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## 🏠 HomePage
 
-[Next-Pc-Builder-Demo](https://next-antd-scaffold.luffyzh.now.sh/)
+[Next-Pc-Builder-Demo](https://pc-builder-khananupamshaﬁ.vercel.app/)
 
 ## Tech Stack
 
